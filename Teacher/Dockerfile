@@ -1,6 +1,6 @@
 
-
 FROM eclipse-temurin:17-jre
+RUN mvn clean package
 
 WORKDIR /app
 COPY target/*.jar app.jar
