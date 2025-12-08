@@ -25,7 +25,7 @@ public class TeacherController {
 	}
 	
 	
-	@GetMapping("/")
+	@GetMapping("display")
 	public List<Teacher> display() {
 		return ts.display();
 	}
