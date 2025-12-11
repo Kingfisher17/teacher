@@ -8,6 +8,7 @@ public interface TeacherService {
 
 	void add(Teacher t);
 	List<Teacher> display();
+	Teacher search(Integer id);
 	void delete(Integer id);
 	void update(Integer id,Teacher t);
 }

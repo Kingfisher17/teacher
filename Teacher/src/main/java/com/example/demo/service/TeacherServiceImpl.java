@@ -5,16 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.exception.IdNotFound;
 import com.example.demo.model.Teacher;
 import com.example.demo.repository.TeacherRepository;
-
 
 @Service
 public class TeacherServiceImpl implements TeacherService {
 
 	@Autowired
 	private TeacherRepository tr;
-	
+
 	@Override
 	public void add(Teacher t) {
 		// TODO Auto-generated method stub
@@ -38,6 +38,14 @@ public class TeacherServiceImpl implements TeacherService {
 		// TODO Auto-generated method stub
 		t.setId(id);
 		tr.save(t);
+	}
+
+	@Override
+	public Teacher search(Integer id) {
+
+		if (!tr.existsById(id))
+			throw new IdNotFound("ID NOT Found !!");
+		return tr.findById(id).get();
 	}
 
 }
